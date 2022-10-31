@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PodcastCard from './PodcastCard';
 
 const PodcastList = () => {
     const [ podcasts, setPodcasts ] = useState([])
@@ -11,9 +12,15 @@ const PodcastList = () => {
         }
         fetchData();
     }, [])
+
+    const podcastCards = podcasts.map((podcast, index) => <PodcastCard key={ index } podcast={ podcast } />)
   
     return (
-    <div>PodcastList</div>
+    <div>
+        PodcastList
+        { podcastCards }
+    </div>
+    
   )
 }
 
