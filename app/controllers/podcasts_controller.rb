@@ -1,6 +1,7 @@
 class PodcastsController < ApplicationController
     get "/podcasts" do
-      Podcast.all.to_json  
+      Podcast.all.to_json(include: {
+        tasks: { only: [:to_do, :todo_status] } } )
     end
 
     get "/podcasts/:id" do
