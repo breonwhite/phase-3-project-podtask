@@ -7,17 +7,17 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
+import Stack from '@mui/material/Stack';
 
 const Navbar = () => {
     
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar disableGutters>
+        <Toolbar>
         <PodcastsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/"
             sx={{
@@ -32,9 +32,11 @@ const Navbar = () => {
           >
             PODTASK
           </Typography>
-          <Button color="inherit" href="/podcasts/new">Add Podcast</Button>
-          <Button color="inherit" href="/podcasts">Manage Podcasts</Button>
-          <Button color="inherit" href="/tasks">All Tasks</Button>
+          <Stack direction="row" spacing={2}>
+          <Button color="inherit" component={ Link } to="/podcasts/new">Add Podcast</Button>
+          <Button color="inherit" component={ Link } to="/podcasts">Manage Podcasts</Button>
+          <Button color="inherit" component={ Link } to="/tasks">All Tasks</Button>
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>
