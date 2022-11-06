@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddIcon from '@mui/icons-material/Add';
 
 const NewTask = ({ podcast }) => {
     const [ task, setTask ] = useState("");
@@ -25,18 +32,18 @@ const NewTask = ({ podcast }) => {
     }
   
     return (
-    <div><h1>Create Task for { podcast.topic }</h1><br/>
-    <form onSubmit={ handleSubmit }>
-        <div>
-            <label>Task:</label>
-            <input type="text" value={ task } onChange={ e => setTask( e.target.value ) } autoFocus={ true } />
-        </div>
-        <br/>
-        <div>
-            <input type="submit" value="Add Task" />
-        </div>
+    <form onSubmit={ handleSubmit } >
+            <Stack direction="row" spacing={2} sx={{ width: '100%', bgcolor: 'background.paper' }}>
+            <TextField id={ task } label="Add a new task" variant="standard" value={ task } onChange={ e => setTask( e.target.value ) } autoFocus={ true } sx={{ width: '85%' }} />
+            <Button
+                sx={{ width: '10%' }}
+                variant="contained"
+                type="submit"
+                size="large"
+                startIcon={<AddIcon />}>
+            </Button>
+            </Stack>
     </form>
-    </div>
   )
 }
 
