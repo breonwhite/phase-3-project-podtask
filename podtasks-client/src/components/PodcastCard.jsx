@@ -10,7 +10,7 @@ import { red } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import Grid from '@mui/material/Grid';
-
+import { Box } from '@mui/material';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -78,7 +78,8 @@ const PodcastCard = ({ podcast }) => {
             </Typography>
         </CardContent>
         <CardContent>
-            <TableContainer component={Paper} elevation={24}>
+            { todoList.length == 0 ? <Box><Typography variant="overline" align="center">There's currently no tasks to complete for this podcast.</Typography></Box> :
+                <TableContainer component={Paper} elevation={24}>
                 <Table sx={{ minWidth: 650 }} size="small" aria-label="simple table" >
                     <TableHead>
                     <TableRow>
@@ -101,6 +102,7 @@ const PodcastCard = ({ podcast }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            }
     </CardContent>
     </Card>
     </Grid>
