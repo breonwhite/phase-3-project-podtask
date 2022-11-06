@@ -78,7 +78,7 @@ const PodcastCard = ({ podcast }) => {
             </Typography>
         </CardContent>
         <CardContent>
-            { todoList.length == 0 ? <Box><Typography variant="overline" align="center">There's currently no tasks to complete for this podcast.</Typography></Box> :
+            { todoList.length == 0 ? <Typography variant="overline" align="center">There's currently no tasks to complete for this podcast.</Typography> :
                 <TableContainer component={Paper} elevation={24}>
                 <Table sx={{ minWidth: 650 }} size="small" aria-label="simple table" >
                     <TableHead>
