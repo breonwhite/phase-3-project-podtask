@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     
     get "/tasks" do
      Task.all.to_json(include: {
-        podcast: { only: [:topic, :description, :guest, :release_date] } })
+        podcast: { only: [:id, :topic, :description, :guest, :release_date] } })
     end
   
     get "/tasks/:id" do

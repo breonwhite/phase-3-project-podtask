@@ -6,7 +6,8 @@ class PodcastsController < ApplicationController
 
     get "/podcasts/:id" do
         podcast = Podcast.find_by_id(params["id"])
-        podcast.to_json
+        podcast.to_json(include: {
+            tasks: { only: [:id, :to_do, :todo_status] } } )
     end
 
     post "/podcasts" do
