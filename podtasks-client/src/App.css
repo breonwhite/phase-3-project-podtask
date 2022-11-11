@@ -24,6 +24,11 @@
   color: white;
 }
 
+.centerMyForm {
+  justify-content: center;
+  align-items: center;
+}
+
 .App-link {
   color: #61dafb;
 }
