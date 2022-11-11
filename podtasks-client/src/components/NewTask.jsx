@@ -15,7 +15,7 @@ const NewTask = ({ podcast }) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-        const body = { podcast_id: podcast.id, list_id: podcast.id, to_do: task, todo_status: "incomplete" }
+        const body = { podcast_id: podcast.id, to_do: task, todo_status: "incomplete" }
         const options = {
             method: "POST",
             headers,
@@ -28,7 +28,7 @@ const NewTask = ({ podcast }) => {
     return (
     <form onSubmit={ handleSubmit } >
             <Stack direction="row" spacing={2} sx={{ width: '100%', bgcolor: 'background.paper' }}>
-            <TextField id={ task } label="Enter a task to add to your list" variant="standard" value={ task } onChange={ e => setTask( e.target.value ) } autoFocus={ true } sx={{ width: '85%' }} />
+            <TextField required id={ task } label="Enter a task to add to your list" variant="standard" value={ task } onChange={ e => setTask( e.target.value ) } autoFocus={ true } sx={{ width: '85%' }} />
             <Button
                 sx={{ width: '10%' }}
                 variant="contained"

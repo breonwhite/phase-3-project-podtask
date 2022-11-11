@@ -7,6 +7,10 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 
+import InputAdornment from '@mui/material/InputAdornment';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
+
 
 const NewPodcast = () => {
     const [ topic, setTopic ] = useState("");
@@ -45,6 +49,7 @@ const NewPodcast = () => {
         <FormControl sx={{ width: '100%', mt: 1, mr: 1 }}>
         <TextField 
             fullWidth
+            required
             margin="normal"
             variant="standard"
             id="topic"
@@ -58,6 +63,7 @@ const NewPodcast = () => {
         <FormControl sx={{ width: '100%', mt: 1, mr: 1 }}>
         <TextField 
             fullWidth
+            required
             margin="normal"
             variant="filled"
             id="description"
@@ -70,6 +76,7 @@ const NewPodcast = () => {
         <FormControl sx={{ width: '100%', mt: 1, mr: 1 }}>
         <TextField 
             fullWidth
+            required
             margin="normal"
             variant="filled"
             id="guest"
@@ -83,6 +90,7 @@ const NewPodcast = () => {
         <FormControl sx={{ width: '100%', mt: 1, mr: 1 }}>
         <TextField 
             fullWidth
+            required
             margin="normal"
             type="date"
             id="releasedate"
