@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_15_181117) do
-
-  create_table "lists", force: :cascade do |t|
-    t.integer "podcast_id"
-    t.string "list_status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2022_11_06_205714) do
 
   create_table "podcasts", force: :cascade do |t|
     t.string "topic"
@@ -30,7 +23,6 @@ ActiveRecord::Schema.define(version: 2022_10_15_181117) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer "podcast_id"
-    t.integer "list_id"
     t.string "to_do"
     t.string "todo_status"
     t.datetime "created_at", precision: 6, null: false

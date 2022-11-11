@@ -13,5 +13,5 @@ use Rack::JSONBodyParser
 
 # Our application
 use PodcastsController
-use ListsController
+use TasksController
 run ApplicationController
