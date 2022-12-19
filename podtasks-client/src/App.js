@@ -11,6 +11,17 @@ import PageNotFound from './components/PageNotFound';
 import PodcastEdit from './components/PodcastEdit';
 
 function App() {
+  const [ podcasts, setPodcasts ] = useState([])
+  const [ tasks, setTasks ] = useState([])
+    
+    useEffect(() => {
+        async function fetchData() {
+            const resp = await fetch('http://localhost:9292/podcasts')
+            const data = await resp.json();
+            setPodcasts(data);
+        }
+        fetchData();
+    }, [podcasts])
 
   return (
     <Router>
@@ -18,9 +29,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/podcasts" element={ <PodcastList /> } />
-        <Route path="/podcasts/new" element={ <NewPodcast /> } />
-        <Route path="/podcasts/:id" element={ <PodcastDetails /> } />
+        <Route path="/podcasts" element={ <PodcastList  podcasts={podcasts} setPodcasts={setPodcasts}  /> } />
+        <Route path="/podcasts/new" element={ <NewPodcast setPodcasts={setPodcasts} podcasts={podcasts}/> } />
+        <Route path="/podcasts/:id" element={ <PodcastDetails podcasts={podcasts} /> } />
         <Route path="/podcasts/:id/edit" element={ <PodcastEdit /> } />
         <Route path="/tasks" element={ <TaskList /> } />
         <Route element={ <PageNotFound /> } />

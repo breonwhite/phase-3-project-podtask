@@ -9,8 +9,8 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Grid from '@mui/material/Grid';
-import { Box } from '@mui/material';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -21,7 +21,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-const PodcastCard = ({ podcast }) => {
+const PodcastCard = ({ podcast, deletePodcast }) => {
     const todoList = podcast.tasks
 
     // capitalizes only first letter of word in string
@@ -46,9 +46,15 @@ const PodcastCard = ({ podcast }) => {
                 </Avatar>
             }
             action={
+                <div>
                 <IconButton href={`/podcasts/${podcast.id}`} aria-label="edit">
                     <EditIcon />
                 </IconButton>
+                <IconButton onClick={ () => deletePodcast( podcast.id ) } aria-label="edit">
+                    <DeleteIcon />
+                </IconButton>
+                </div>
+
             }
             subheader={
                 <Typography sx={{ fontSize: 14 }} color="text.secondary">

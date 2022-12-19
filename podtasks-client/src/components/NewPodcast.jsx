@@ -12,7 +12,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
 
-const NewPodcast = () => {
+const NewPodcast = ({ podcasts, setPodcasts }) => {
     const [ topic, setTopic ] = useState("");
     const [ description, setDescription ] = useState("");
     const [ guest, setGuest ] = useState("");
@@ -20,7 +20,7 @@ const NewPodcast = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
         const headers = {
             'Accept': 'application/json',
@@ -32,7 +32,13 @@ const NewPodcast = () => {
             headers,
             body: JSON.stringify(body)
         }
-        await fetch('http://localhost:9292/podcasts', options);
+        fetch('http://localhost:9292/podcasts', options)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            setPodcasts([...podcasts, data])
+        })
+        // remove the await, replace with a .then
         // redirect to Podcast List
         navigate("/podcasts");
     }
