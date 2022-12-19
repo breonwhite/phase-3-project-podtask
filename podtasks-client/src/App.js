@@ -23,13 +23,20 @@ function App() {
         fetchData();
     }, [podcasts])
 
+    const deletePodcast = id => {
+      fetch(`http://localhost:9292/podcasts/${ id }`, { method: "DELETE" })
+      .then(resp => resp.json())
+      .then(data => setPodcasts(podcasts.filter( p => p.id != id)))
+  }
+
+
   return (
     <Router>
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/podcasts" element={ <PodcastList  podcasts={podcasts} setPodcasts={setPodcasts}  /> } />
+        <Route path="/podcasts" element={ <PodcastList podcasts={podcasts} setPodcasts={setPodcasts} deletePodcast={ deletePodcast }  /> } />
         <Route path="/podcasts/new" element={ <NewPodcast setPodcasts={setPodcasts} podcasts={podcasts}/> } />
         <Route path="/podcasts/:id" element={ <PodcastDetails podcasts={podcasts} /> } />
         <Route path="/podcasts/:id/edit" element={ <PodcastEdit /> } />

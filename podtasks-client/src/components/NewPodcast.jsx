@@ -12,7 +12,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
 
-const NewPodcast = ({ podcasts, setPodcasts }) => {
+const NewPodcast = ({ podcasts, setPodcasts, addPodcast }) => {
     const [ topic, setTopic ] = useState("");
     const [ description, setDescription ] = useState("");
     const [ guest, setGuest ] = useState("");
@@ -40,7 +40,6 @@ const NewPodcast = ({ podcasts, setPodcasts }) => {
         })
         // remove the await, replace with a .then
         // redirect to Podcast List
-        navigate("/podcasts");
     }
 
   return (
